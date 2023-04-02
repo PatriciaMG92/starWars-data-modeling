@@ -8,6 +8,12 @@ from eralchemy2 import render_er
 
 Base = declarative_base()
 
+class User(Base):
+    __tablename__ = 'user'
+   
+    id = Column(Integer, primary_key=True)
+    favorites_list = Column(Integer, ForeignKey('favorites.id'))
+
 class Characters(Base):
     __tablename__ = 'characters'
     # Here we define columns for the table person
