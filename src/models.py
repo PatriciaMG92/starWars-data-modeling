@@ -12,7 +12,6 @@ class User(Base):
     __tablename__ = 'user'
    
     id = Column(Integer, primary_key=True)
-    favorites_list = Column(Integer, ForeignKey('favorites.id'))
 
 class Characters(Base):
     __tablename__ = 'characters'
@@ -51,6 +50,7 @@ class Favorites(Base):
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
     
 
     def to_dict(self):
